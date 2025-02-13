@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>进化树可视化</title>
+    <link rel="icon" type="image/x-icon" href="../static/favicon.ico">
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- 左侧查看器区域 -->
+        <div class="viewer-section">
+            <header>
+                <h1>进化树可视化工具</h1>
+                <p class="subtitle">支持 Newick 格式的进化树在线可视化与分析</p>
+                <p class="contact-info">如遇问题请联系：<a href="mailto:imjiaoyuan@gmail.com">imjiaoyuan@gmail.com</a></p>
+            </header>
+
+            <div id="viewer-container">
+                <div id="tree-viewer"></div>
+            </div>
+        </div>
+
+        <!-- 右侧控制面板 -->
+        <div class="control-panel">
+            <div class="upload-section">
+                <label for="tree-file" class="file-label">
+                    <span class="btn-text">选择文件</span>
+                    <input type="file" id="tree-file" accept=".nwk,.newick,.txt">
+                </label>
+                <span class="file-name" id="file-name">未选择文件</span>
+            </div>
+
+            <div class="style-controls">
+                <div class="control-group">
+                    <label for="layout-type">布局方式</label>
+                    <select id="layout-type">
+                        <option value="rectangular">矩形布局</option>
+                        <option value="circular">环状布局</option>
+                        <option value="unrooted">无根树布局</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="branch-scale">分支比例</label>
+                    <select id="branch-scale">
+                        <option value="true">显示真实长度</option>
+                        <option value="false">等距显示</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="viewer-controls">
+                <button id="reset-view" class="control-btn">
+                    <span class="btn-icon">⟲</span>重置视图
+                </button>
+                <button id="export-svg" class="control-btn">
+                    <span class="btn-icon">⬇</span>导出SVG
+                </button>
+                <button id="export-png" class="control-btn">
+                    <span class="btn-icon">⬇</span>导出PNG
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="static/functions.js"></script>
+</body>
+</html> 

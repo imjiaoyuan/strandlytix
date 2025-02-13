@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlphaFold3 结构可视化</title>
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://3dmol.org/build/3Dmol-min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- 左侧查看器区域 -->
+        <div class="viewer-section">
+            <header>
+                <h1>AlphaFold3 结构可视化工具</h1>
+                <p class="subtitle">支持 AlphaFold3 预测结果的可视化分析</p>
+                <p class="contact-info">如遇问题请联系：<a href="mailto:imjiaoyuan@gmail.com">imjiaoyuan@gmail.com</a></p>
+            </header>
+            
+            <!-- 文件上传区域 -->
+            <div class="upload-panel">
+                <div class="file-group">
+                    <label for="model-file">结构文件 (CIF)</label>
+                    <input type="file" id="model-file" accept=".cif">
+                </div>
+                <div class="file-group">
+                    <label for="confidence-file">置信度文件 (JSON)</label>
+                    <input type="file" id="confidence-file" accept=".json">
+                </div>
+                <div class="file-group">
+                    <label for="summary-file">总结文件 (JSON)</label>
+                    <input type="file" id="summary-file" accept=".json">
+                </div>
+            </div>
+
+            <!-- 可视化控制区域 -->
+            <div class="visualization-controls">
+                <div class="control-group">
+                    <label for="display-mode">显示模式</label>
+                    <select id="display-mode">
+                        <option value="confidence">按置信度显示</option>
+                        <option value="chain">按链显示</option>
+                        <option value="rainbow">彩虹模式</option>
+                    </select>
+                </div>
+                <div class="button-group">
+                    <button id="reset-view" class="control-btn">
+                        <span class="btn-icon">⟲</span>重置视图
+                    </button>
+                    <button id="spin" class="control-btn">
+                        <span class="btn-icon">↻</span>旋转
+                    </button>
+                    <button id="export-png" class="control-btn">
+                        <span class="btn-icon">⬇</span>导出PNG
+                    </button>
+                    <button id="export-pdf" class="control-btn">
+                        <span class="btn-icon">📄</span>生成报告
+                    </button>
+                </div>
+            </div>
+
+            <!-- 结构查看器 -->
+            <div class="viewers-container">
+                <div id="structure-viewer" class="viewer"></div>
+                <div id="pae-plot" class="viewer"></div>
+            </div>
+        </div>
+
+        <!-- 右侧信息面板 -->
+        <div class="info-panel">
+            <div class="metrics-section">
+                <h3>结构信息</h3>
+                <div id="structure-info"></div>
+            </div>
+            <div class="metrics-section">
+                <h3>质量评估</h3>
+                <div id="quality-metrics"></div>
+            </div>
+            <div class="confidence-legend">
+                <h3>置信度图例</h3>
+                <div class="legend-items">
+                    <div class="legend-item">
+                        <span class="color-box very-high"></span>
+                        <span>很高 (90-100)</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-box high"></span>
+                        <span>高 (70-90)</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-box medium"></span>
+                        <span>中等 (50-70)</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-box low"></span>
+                        <span>低 (0-50)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="static/functions.js"></script>
+</body>
+</html> 
