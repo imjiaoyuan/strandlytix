@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>热图可视化</title>
+    <link rel="icon" type="image/x-icon" href="../static/favicon.ico">
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- 左侧查看器区域 -->
+        <div class="viewer-section">
+            <header>
+                <h1>热图可视化工具</h1>
+                <p class="subtitle">支持表达矩阵的热图绘制与聚类分析</p>
+                <p class="contact-info">如遇问题请联系：<a href="mailto:imjiaoyuan@gmail.com">imjiaoyuan@gmail.com</a></p>
+            </header>
+
+            <div id="viewer-container">
+                <div id="heatmap-plot"></div>
+            </div>
+        </div>
+
+        <!-- 右侧控制面板 -->
+        <div class="control-panel">
+            <div class="data-input-section">
+                <h3>数据输入</h3>
+                <div class="input-format">
+                    <p>请按以下格式输入数据（制表符分隔）：</p>
+                    <pre>
+ID      Sample1 Sample2 Sample3
+Gene1   1.2     2.3     0.8
+Gene2   3.4     1.5     2.1
+Gene3   0.6     1.9     2.5
+                    </pre>
+                    <button id="load-example" class="control-btn secondary-btn">
+                        <span class="btn-icon">↺</span>加载示例数据
+                    </button>
+                </div>
+                <textarea id="data-input" placeholder="在此输入数据..."></textarea>
+                <button id="draw-heatmap" class="control-btn">
+                    <span class="btn-icon">↻</span>绘制热图
+                </button>
+            </div>
+
+            <div class="style-controls">
+                <div class="control-group">
+                    <label for="color-scheme">配色方案</label>
+                    <select id="color-scheme"></select>
+                </div>
+
+                <div class="control-group">
+                    <label for="cluster-rows">行聚类</label>
+                    <select id="cluster-rows">
+                        <option value="true">开启</option>
+                        <option value="false">关闭</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="cluster-cols">列聚类</label>
+                    <select id="cluster-cols">
+                        <option value="true">开启</option>
+                        <option value="false">关闭</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="scale-data">数据标准化</label>
+                    <select id="scale-data">
+                        <option value="none">不标准化</option>
+                        <option value="row">按行</option>
+                        <option value="column">按列</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="viewer-controls">
+                <button id="export-svg" class="control-btn">
+                    <span class="btn-icon">⬇</span>导出SVG
+                </button>
+                <button id="export-png" class="control-btn">
+                    <span class="btn-icon">⬇</span>导出PNG
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="static/functions.js"></script>
+</body>
+</html> 
