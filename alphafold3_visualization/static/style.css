@@ -187,18 +187,21 @@ h1 {
 .medium { background-color: #FFD700; }
 .low { background-color: #FF0000; }
 
-/* 按钮样式 */
+/* 统一按钮样式 */
 .control-btn {
-    display: flex;
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.2rem;
     background-color: var(--primary-color);
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    width: auto;
 }
 
 .control-btn:hover {
@@ -208,6 +211,24 @@ h1 {
 
 .btn-icon {
     font-size: 1.1rem;
+}
+
+/* 次要按钮样式 */
+.secondary-btn {
+    background-color: #757575;
+}
+
+.secondary-btn:hover {
+    background-color: #616161;
+}
+
+/* 导出按钮样式 */
+#export-png, #export-pdf {
+    background-color: #009688;
+}
+
+#export-png:hover, #export-pdf:hover {
+    background-color: #00796b;
 }
 
 /* 加载提示 */

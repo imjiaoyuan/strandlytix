@@ -106,17 +106,24 @@ h1 {
 }
 
 .file-label {
-    display: inline-block;
-    padding: 0.5rem 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
     background-color: var(--primary-color);
     color: white;
+    border: none;
     border-radius: 4px;
     cursor: pointer;
-    text-align: center;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    width: 100%;
 }
 
 .file-label:hover {
     background-color: var(--hover-color);
+    transform: translateY(-1px);
 }
 
 input[type="file"] {
@@ -160,23 +167,26 @@ select {
     gap: 0.5rem;
 }
 
+/* 统一按钮样式 */
 .control-btn {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.8rem;
-    background-color: var(--primary-color);
+    padding: 0.6rem 1.2rem;
+    background-color: var(--primary-color); /* 蓝色 */
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.2s ease;
     font-size: 0.9rem;
+    width: auto;
 }
 
 .control-btn:hover {
     background-color: var(--hover-color);
+    transform: translateY(-1px);
 }
 
 .btn-icon {
@@ -234,4 +244,13 @@ select {
     .control-panel {
         width: 100%;
     }
+}
+
+/* 导出按钮样式 */
+#export-svg, #export-png {
+    background-color: #009688; /* 绿色 */
+}
+
+#export-svg:hover, #export-png:hover {
+    background-color: #00796b;
 } 
