@@ -8,18 +8,18 @@ let currentData = {
     summary: null
 };
 
-// 在文件开头添加颜色映射
+// 在文件开头定义颜色映射
 const chainColors = {
-    'A': '#ff0000', // 红色
-    'B': '#00ff00', // 绿色
-    'C': '#0000ff', // 蓝色
-    'D': '#ffff00', // 黄色
-    'E': '#ff00ff', // 品红
-    'F': '#00ffff', // 青色
-    'G': '#ffa500', // 橙色
-    'H': '#800080', // 紫色
-    'I': '#008000', // 深绿
-    'J': '#800000'  // 褐色
+    'A': 'rgb(31, 120, 180)',  // 蓝色
+    'B': 'rgb(255, 127, 14)',  // 橙色
+    'C': 'rgb(44, 160, 44)',   // 绿色
+    'D': 'rgb(214, 39, 40)',   // 红色
+    'E': 'rgb(148, 103, 189)', // 紫色
+    'F': 'rgb(140, 86, 75)',   // 棕色
+    'G': 'rgb(227, 119, 194)', // 粉色
+    'H': 'rgb(127, 127, 127)', // 灰色
+    'I': 'rgb(188, 189, 34)',  // 黄绿色
+    'J': 'rgb(23, 190, 207)'   // 青色
 };
 
 // 初始化3D查看器
@@ -31,19 +31,10 @@ function initViewer() {
             throw new Error('找不到查看器元素');
         }
 
-        // 设置容器样式
-        viewerElement.style.width = '100%';
-        viewerElement.style.height = '100%';
-        viewerElement.style.position = 'relative';
-
         // 创建查看器
         viewer = $3Dmol.createViewer(viewerElement, {
             backgroundColor: "white",
-            antialias: true,
-            defaultcolors: $3Dmol.rasmolElementColors,
-            cameraPosZ: 50,
-            height: '100%',
-            width: '100%'
+            antialias: true
         });
 
         console.log('查看器初始化成功');
@@ -68,7 +59,7 @@ function setupEventListeners() {
     
     // 控制按钮事件
     $("#display-mode").change(updateVisualization);
-    $("#reset-view").click(() => viewer.zoomTo());
+    $("#reset-view").click(resetView);
     $("#spin").click(toggleSpin);
     $("#export-png").click(exportImage);
     $("#export-pdf").click(generateReport);
@@ -105,31 +96,16 @@ async function handleModelFile(event) {
         viewer.clear();
         
         // 添加新模型
-        try {
-            const model = viewer.addModel(content, "cif");
-            console.log('模型加载成功');
-            
-            // 设置默认样式
-            model.setStyle({}, {
-                cartoon: {
-                    color: 'spectrum',
-                    opacity: 0.9,
-                    smoothSheet: true
-                }
-            });
-            
-            // 调整视图
-            viewer.zoomTo();
-            viewer.render();
-
-            // 如果有置信度数据，更新显示
-            if (currentData.confidences) {
-                updateConfidenceVisualization();
-            }
-        } catch (modelError) {
-            console.error('模型加载错误:', modelError);
-            throw new Error('结构文件格式不正确或损坏');
-        }
+        viewer.addModel(content, "cif");
+        
+        // 设置默认样式
+        updateVisualization();
+        
+        // 调整视图
+        viewer.zoomTo();
+        viewer.render();
+        
+        console.log('模型加载成功');
     } catch (error) {
         console.error('文件处理错误:', error);
         showError("加载结构文件失败: " + error.message);
@@ -182,62 +158,23 @@ function readFileAsText(file) {
     });
 }
 
-// 更新结构可视化
-function updateStructureVisualization() {
-    if (!currentData.model || !viewer) {
-        console.warn('没有可用的模型数据或查看器未初始化');
-        return;
-    }
-    
-    try {
-        // 清除现有显示
-        viewer.clear();
-        
-        // 添加新模型
-        viewer.addModel(currentData.model, "cif", {keepH: true});
-        
-        // 应用显示样式
-        const displayMode = $("#display-mode").val();
-        updateVisualization(displayMode);
-        
-        // 调整视图
-        viewer.zoomTo();
-        viewer.render();
-        
-        console.log('结构可视化更新成功');
-    } catch (error) {
-        console.error('结构可视化更新失败:', error);
-        showError('无法显示结构');
-    }
-}
-
 // 更新可视化样式
 function updateVisualization() {
-    if (!viewer) {
-        console.warn('查看器未初始化');
-        return;
-    }
+    if (!viewer) return;
 
     try {
         const displayMode = $("#display-mode").val();
-        const model = viewer.getModel();
-        if (!model) {
-            console.warn('没有加载的模型');
-            return;
-        }
-
-        // 移除现有表示
-        model.removeAllStyles();
-
-        // 设置颜色方案
+        
+        // 设置基础样式
         let style = {
             cartoon: {
                 opacity: 0.9,
-                smoothSheet: true,
-                thickness: 0.4
+                thickness: 0.4,
+                style: 'oval'
             }
         };
 
+        // 根据显示模式设置颜色
         switch (displayMode) {
             case "confidence":
                 if (currentData.confidences) {
@@ -253,22 +190,30 @@ function updateVisualization() {
                 }
                 break;
             case "chain":
-                style.cartoon.color = 'chainname';
+                style.cartoon.colorfunc = function(atom) {
+                    const chain = atom.chain;
+                    return chainColors[chain] || 'gray';  // 如果找不到对应颜色则使用灰色
+                };
                 break;
             case "rainbow":
+                style.cartoon.color = 'spectrum';
+                style.cartoon.colorscheme = {
+                    gradient: 'rainbow',
+                    min: 1,
+                    max: viewer.selectedAtoms().length
+                };
+                break;
+            default:
                 style.cartoon.color = 'spectrum';
                 break;
         }
 
         // 应用样式
-        model.setStyle({}, style);
-        
-        // 刷新显示
+        viewer.setStyle({}, style);
         viewer.render();
-        console.log('显示样式更新成功');
     } catch (error) {
         console.error('显示样式更新失败:', error);
-        showError('更新显示样式失败');
+        showError('更新显示样式失败: ' + error.message);
     }
 }
 
@@ -431,23 +376,26 @@ function calculateAveragePLDDT() {
 
 // 切换旋转
 function toggleSpin() {
-    isSpinning = !isSpinning;
-    viewer.spin(isSpinning);
-    
-    $("#spin").html(
-        isSpinning ? 
-        '<span class="btn-icon">⏹</span>停止旋转' : 
-        '<span class="btn-icon">↻</span>旋转'
-    );
+    if (isSpinning) {
+        viewer.spin(false);
+        isSpinning = false;
+    } else {
+        viewer.spin(true);
+        isSpinning = true;
+    }
 }
 
-// 导出PNG图像
-async function exportImage() {
+// 重置视图
+function resetView() {
+    viewer.zoomTo();
+}
+
+// 导出PNG图片
+function exportImage() {
     try {
-        const png = viewer.pngURI();
-        const link = document.createElement('a');
-        link.href = png;
+        let link = document.createElement('a');
         link.download = 'structure.png';
+        link.href = viewer.pngURI();
         link.click();
     } catch (error) {
         showError("导出图像失败");
