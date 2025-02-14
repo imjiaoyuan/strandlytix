@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>韦恩图可视化</title>
+    <link rel="icon" type="image/x-icon" href="../static/favicon.ico">
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/venn.js@0.2.20/build/venn.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- 左侧查看器区域 -->
+        <div class="viewer-section">
+            <header>
+                <h1>韦恩图可视化工具</h1>
+                <p class="subtitle">支持多个数据集的韦恩图在线绘制与分析</p>
+                <p class="contact-info">如遇问题请联系：<a href="mailto:imjiaoyuan@gmail.com">imjiaoyuan@gmail.com</a></p>
+            </header>
+
+            <div id="viewer-container">
+                <div id="venn-diagram"></div>
+            </div>
+        </div>
+
+        <!-- 右侧控制面板 -->
+        <div class="control-panel">
+            <div class="data-input-section">
+                <h3>数据输入</h3>
+                <div class="input-format">
+                    <p>请按以下格式输入数据（每行一个元素）：</p>
+                    <pre>
+集合名称1:
+元素1
+元素2
+元素3
+
+集合名称2:
+元素2
+元素4
+元素5
+                    </pre>
+                </div>
+                <textarea id="data-input" placeholder="在此输入数据..."></textarea>
+                <button id="draw-venn" class="control-btn">
+                    <span class="btn-icon">↻</span>绘制图形
+                </button>
+            </div>
+
+            <div class="style-controls">
+                <div class="control-group">
+                    <label for="color-scheme">配色方案</label>
+                    <select id="color-scheme">
+                        <option value="default">默认配色</option>
+                        <option value="pastel">柔和色调</option>
+                        <option value="bright">明亮色调</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="opacity">透明度</label>
+                    <input type="range" id="opacity" min="0.1" max="1" step="0.1" value="0.4">
+                </div>
+            </div>
+
+            <div class="viewer-controls">
+                <button id="export-svg" class="control-btn">
+                    <span class="btn-icon">⬇</span>导出SVG
+                </button>
+                <button id="export-png" class="control-btn">
+                    <span class="btn-icon">⬇</span>导出PNG
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="static/functions.js"></script>
+</body>
+</html> 
