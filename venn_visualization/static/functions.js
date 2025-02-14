@@ -5,6 +5,31 @@ const colorSchemes = {
     bright: ["#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF"]
 };
 
+// 添加示例数据
+const exampleData = `差异基因集A:
+BRCA1
+TP53
+EGFR
+PTEN
+MYC
+KRAS
+
+差异基因集B:
+TP53
+PTEN
+MYC
+VEGFA
+CDH1
+IL6
+
+差异基因集C:
+MYC
+KRAS
+VEGFA
+IL6
+TNF
+TGFB1`;
+
 $(document).ready(function() {
     initVennDiagram();
     setupEventListeners();
@@ -24,6 +49,7 @@ function setupEventListeners() {
     $("#opacity").change(updateStyle);
     $("#export-svg").click(exportSVG);
     $("#export-png").click(exportPNG);
+    $("#load-example").click(loadExampleData);
 }
 
 function parseInput(input) {
@@ -242,4 +268,10 @@ function exportPNG() {
         console.error("导出PNG时出错:", error);
         alert("导出PNG失败: " + error.message);
     }
+}
+
+// 添加加载示例数据的函数
+function loadExampleData() {
+    $("#data-input").val(exampleData);
+    drawVennDiagram();
 } 
