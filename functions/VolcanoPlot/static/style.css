@@ -1,0 +1,235 @@
+:root {
+    --primary-color: #2196F3;
+    --hover-color: #1976D2;
+    --text-color: #333;
+    --light-gray: #f5f5f5;
+    --border-color: #ddd;
+    --control-width: 300px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-gray);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    padding: 1rem;
+}
+
+/* 左侧查看器区域 */
+.viewer-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+    min-height: 0;
+}
+
+header {
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.contact-info {
+    color: #666;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.contact-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+#viewer-container {
+    flex: 1;
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+}
+
+#volcano-plot {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+}
+
+/* 右侧控制面板 */
+.control-panel {
+    width: var(--control-width);
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: calc(100vh - 2rem);
+    overflow-y: auto;
+}
+
+.data-input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.input-format {
+    background: var(--light-gray);
+    padding: 0.75rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.input-format pre {
+    margin-top: 0.25rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    white-space: pre;
+    overflow-x: auto;
+}
+
+#data-input {
+    height: 150px;
+    min-height: 100px;
+    max-height: 200px;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    resize: vertical;
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+.style-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.control-group label {
+    font-weight: 500;
+    color: #555;
+}
+
+select, input[type="number"] {
+    width: 100%;
+    padding: 0.4rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* 统一按钮样式 */
+.control-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    width: auto;
+}
+
+.control-btn:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-1px);
+}
+
+.btn-icon {
+    font-size: 1.1rem;
+}
+
+/* 次要按钮样式 */
+.secondary-btn {
+    background-color: #757575;
+}
+
+.secondary-btn:hover {
+    background-color: #616161;
+}
+
+/* 导出按钮样式 */
+#export-svg, #export-png {
+    background-color: #009688;
+}
+
+#export-svg:hover, #export-png:hover {
+    background-color: #00796b;
+}
+
+/* 导出按钮区域 */
+.viewer-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+
+    .viewer-section {
+        margin-right: 0;
+        margin-bottom: 1rem;
+        height: 50vh;
+    }
+
+    .control-panel {
+        width: 100%;
+        height: auto;
+        max-height: 50vh;
+    }
+
+    #viewer-container {
+        min-height: 300px;
+    }
+} 
