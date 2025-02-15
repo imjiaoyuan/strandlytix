@@ -1,0 +1,172 @@
+/* 基础样式 */
+:root {
+    --primary-color: #2196F3;
+    --hover-color: #1976D2;
+    --text-color: #333;
+    --border-color: #ddd;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #f5f5f5;
+}
+
+.container {
+    padding: 2rem;
+}
+
+/* 标题样式 */
+header {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-info {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.contact-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* 查看器区域样式 */
+.viewer-section {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 2rem;
+    min-height: calc(100vh - 150px);
+}
+
+/* 数据库列表样式 */
+h2 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin: 1.5rem 0 0.75rem;
+}
+
+h2:first-child {
+    margin-top: 0;
+}
+
+.database-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.database-item {
+    display: grid;
+    grid-template-columns: 120px 1fr 80px;
+    gap: 2rem;
+    align-items: center;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.database-name {
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.database-desc {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.database-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.database-item a:hover {
+    color: var(--hover-color);
+}
+
+/* 自定义滚动条样式 */
+.tool-item::-webkit-scrollbar {
+    width: 4px;
+}
+
+.tool-item::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.tool-item::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 2px;
+}
+
+.tool-item::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+/* 搜索框样式 */
+.search-box {
+    margin-bottom: 1rem;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* 筛选选项样式 */
+.filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filter-options label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* 标题区域样式 */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.submit-btn {
+    color: white;
+    background-color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--hover-color);
+} 

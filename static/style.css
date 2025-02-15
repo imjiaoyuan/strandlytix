@@ -132,6 +132,7 @@ footer {
     color: var(--primary-color);
     text-decoration: none;
     margin: 0 0.5rem;
+    font-weight: 500;  /* 所有链接都加粗 */
 }
 
 .footer-links a:hover {
@@ -241,4 +242,9 @@ footer {
     color: #fff;
     width: 80px;
     height: 80px;
+}
+
+/* 意见反馈按钮样式 */
+.feedback-btn {
+    color: var(--primary-color) !important;
 } 

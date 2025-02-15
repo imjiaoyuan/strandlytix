@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生物数据库导航</title>
+    <link rel="icon" type="image/x-icon" href="../../static/favicon.ico">
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>生物数据库导航</h1>
+                <a href="https://github.com/imjiaoyuan/bioinformatics_toolbox/issues/new?title=提交数据库：" target="_blank" class="submit-btn">提交数据库</a>
+            </div>
+            <p class="contact-info">如遇问题请联系：<a href="mailto:imjiaoyuan@gmail.com">imjiaoyuan@gmail.com</a></p>
+        </header>
+
+        <div class="viewer-section">
+            <h2>核酸数据库</h2>
+            <div class="database-list">
+                <div class="database-item">
+                    <div class="database-name">GenBank</div>
+                    <div class="database-desc">NCBI维护的最大核酸序列数据库，收录了来自超过40万个物种的DNA和RNA序列。提供序列提交、检索、比对等功能，支持BLAST序列相似性搜索，并与文献数据库PubMed关联，每日与EMBL、DDBJ数据同步更新</div>
+                    <a href="https://www.ncbi.nlm.nih.gov/genbank/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">EMBL</div>
+                    <div class="database-desc">欧洲核酸序列数据库，与 GenBank 和 DDBJ 共同构成国际核酸序列数据库联盟</div>
+                    <a href="https://www.ebi.ac.uk/ena" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">DDBJ</div>
+                    <div class="database-desc">日本 DNA 数据库，提供序列提交、分析和检索服务，数据与 GenBank 和 EMBL 同步</div>
+                    <a href="https://www.ddbj.nig.ac.jp/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">RNAcentral</div>
+                    <div class="database-desc">非编码 RNA 序列的统一资源，整合了多个专业 RNA 数据库的信息</div>
+                    <a href="https://rnacentral.org/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">miRBase</div>
+                    <div class="database-desc">微小RNA序列和注释数据库，提供miRNA命名、序列和表达信息</div>
+                    <a href="https://www.mirbase.org/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">Rfam</div>
+                    <div class="database-desc">RNA家族数据库，收集非编码RNA和其他结构RNA的序列信息</div>
+                    <a href="http://rfam.xfam.org/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">tRNAdb</div>
+                    <div class="database-desc">转运RNA数据库，提供tRNA序列、结构和修饰信息</div>
+                    <a href="http://trna.bioinf.uni-leipzig.de/" target="_blank">访问</a>
+                </div>
+            </div>
+
+            <h2>蛋白质数据库</h2>
+            <div class="database-list">
+                <div class="database-item">
+                    <div class="database-name">UniProt</div>
+                    <div class="database-desc">最全面的蛋白质数据库，提供序列、功能注释、结构信息和文献引用，包含 SwissProt 和 TrEMBL</div>
+                    <a href="https://www.uniprot.org/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">PDB</div>
+                    <div class="database-desc">生物大分子三维结构数据库，包含蛋白质、核酸和复合物的原子坐标信息</div>
+                    <a href="https://www.rcsb.org/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">Pfam</div>
+                    <div class="database-desc">蛋白质家族数据库，提供蛋白质结构域的分类和进化信息</div>
+                    <a href="http://pfam.xfam.org/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">InterPro</div>
+                    <div class="database-desc">整合多个蛋白质功能位点数据库，提供蛋白质家族、结构域和功能位点的分类</div>
+                    <a href="https://www.ebi.ac.uk/interpro/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">AlphaFold DB</div>
+                    <div class="database-desc">DeepMind开发的蛋白质结构预测数据库，包含多个物种的蛋白质结构预测</div>
+                    <a href="https://alphafold.ebi.ac.uk/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">SWISS-MODEL</div>
+                    <div class="database-desc">蛋白质同源模建数据库，提供蛋白质三维结构预测服务</div>
+                    <a href="https://swissmodel.expasy.org/" target="_blank">访问</a>
+                </div>
+            </div>
+
+            <h2>基因组数据库</h2>
+            <div class="database-list">
+                <div class="database-item">
+                    <div class="database-name">Ensembl</div>
+                    <div class="database-desc">真核生物基因组浏览器，提供基因组注释、变异信息和比较基因组学分析工具</div>
+                    <a href="https://www.ensembl.org/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">UCSC</div>
+                    <div class="database-desc">基因组浏览器，提供多物种基因组数据可视化和比较分析功能</div>
+                    <a href="https://genome.ucsc.edu/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">NCBI Genome</div>
+                    <div class="database-desc">提供完整基因组序列、图谱和注释信息，包括原核生物和真核生物</div>
+                    <a href="https://www.ncbi.nlm.nih.gov/genome/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">1000 Genomes</div>
+                    <div class="database-desc">人类基因组变异图谱计划数据库，包含多个人群的基因组变异信息</div>
+                    <a href="https://www.internationalgenome.org/" target="_blank">访问</a>
+                </div>
+            </div>
+
+            <h2>功能数据库</h2>
+            <div class="database-list">
+                <div class="database-item">
+                    <div class="database-name">GO</div>
+                    <div class="database-desc">基因本体论数据库，提供标准化的基因功能描述术语，包括分子功能、生物过程和细胞组分</div>
+                    <a href="http://geneontology.org/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">KEGG</div>
+                    <div class="database-desc">京都基因与基因组百科全书，提供代谢通路、信号通路和疾病相关通路的注释信息</div>
+                    <a href="https://www.genome.jp/kegg/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">Reactome</div>
+                    <div class="database-desc">生物反应通路数据库，提供手工注释的代谢和信号通路信息</div>
+                    <a href="https://reactome.org/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">STRING</div>
+                    <div class="database-desc">蛋白质相互作用网络数据库，整合实验验证和预测的蛋白质互作信息</div>
+                    <a href="https://string-db.org/" target="_blank">访问</a>
+                </div>
+            </div>
+
+            <h2>表达数据库</h2>
+            <div class="database-list">
+                <div class="database-item">
+                    <div class="database-name">GEO</div>
+                    <div class="database-desc">基因表达综合数据库，收集微阵列、高通量测序等实验数据，支持表达谱分析</div>
+                    <a href="https://www.ncbi.nlm.nih.gov/geo/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">ArrayExpress</div>
+                    <div class="database-desc">功能基因组学数据存档，包含基因表达、ChIP-seq 和表观组学数据</div>
+                    <a href="https://www.ebi.ac.uk/arrayexpress/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">GTEx</div>
+                    <div class="database-desc">人类组织特异性基因表达数据库，提供基因型和表达型关联分析</div>
+                    <a href="https://gtexportal.org/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">Human Protein Atlas</div>
+                    <div class="database-desc">人类蛋白质表达图谱，提供组织和细胞水平的蛋白质表达数据</div>
+                    <a href="https://www.proteinatlas.org/" target="_blank">访问</a>
+                </div>
+            </div>
+
+            <h2>变异数据库</h2>
+            <div class="database-list">
+                <div class="database-item">
+                    <div class="database-name">dbSNP</div>
+                    <div class="database-desc">单核苷酸多态性数据库，收集各物种的 SNP、短插入缺失和微卫星标记信息</div>
+                    <a href="https://www.ncbi.nlm.nih.gov/snp/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">ClinVar</div>
+                    <div class="database-desc">临床相关变异数据库，提供基因变异与人类疾病的关联信息</div>
+                    <a href="https://www.ncbi.nlm.nih.gov/clinvar/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">COSMIC</div>
+                    <div class="database-desc">体细胞突变目录，收集与癌症相关的基因组变异信息</div>
+                    <a href="https://cancer.sanger.ac.uk/cosmic" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">gnomAD</div>
+                    <div class="database-desc">基因组聚合数据库，提供人群水平的基因组变异频率信息</div>
+                    <a href="https://gnomad.broadinstitute.org/" target="_blank">访问</a>
+                </div>
+            </div>
+
+            <h2>疾病数据库</h2>
+            <div class="database-list">
+                <div class="database-item">
+                    <div class="database-name">OMIM</div>
+                    <div class="database-desc">在线人类孟德尔遗传数据库，提供人类基因与遗传疾病的关联信息</div>
+                    <a href="https://www.omim.org/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">DisGeNET</div>
+                    <div class="database-desc">基因-疾病关联数据库，整合多个公共数据源的疾病基因组信息</div>
+                    <a href="https://www.disgenet.org/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">TCGA</div>
+                    <div class="database-desc">癌症基因组图谱，提供多种癌症类型的基因组学数据</div>
+                    <a href="https://portal.gdc.cancer.gov/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">MalaCards</div>
+                    <div class="database-desc">人类疾病数据库，整合多个数据源的疾病相关基因、通路和药物信息</div>
+                    <a href="https://www.malacards.org/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">DISEASES</div>
+                    <div class="database-desc">疾病-基因关联数据库，基于文本挖掘和实验数据的综合分析</div>
+                    <a href="https://diseases.jensenlab.org/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">GWAS Catalog</div>
+                    <div class="database-desc">全基因组关联研究目录，收集人类疾病相关的遗传变异信息</div>
+                    <a href="https://www.ebi.ac.uk/gwas/" target="_blank">访问</a>
+                </div>
+            </div>
+
+            <h2>药物数据库</h2>
+            <div class="database-list">
+                <div class="database-item">
+                    <div class="database-name">DrugBank</div>
+                    <div class="database-desc">综合性药物信息数据库，包含药物的化学、药理和分子特性</div>
+                    <a href="https://go.drugbank.com/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">PubChem</div>
+                    <div class="database-desc">化学分子数据库，提供化合物结构、活性和毒理学数据</div>
+                    <a href="https://pubchem.ncbi.nlm.nih.gov/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">ChEMBL</div>
+                    <div class="database-desc">生物活性分子数据库，收集药物样小分子的生物活性数据</div>
+                    <a href="https://www.ebi.ac.uk/chembl/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">TTD</div>
+                    <div class="database-desc">治疗靶点数据库，提供药物靶点和相应疾病的信息</div>
+                    <a href="http://db.idrblab.net/ttd/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">DGIdb</div>
+                    <div class="database-desc">药物-基因相互作用数据库，整合药物基因组学信息</div>
+                    <a href="https://www.dgidb.org/" target="_blank">访问</a>
+                </div>
+            </div>
+
+            <h2>表观遗传数据库</h2>
+            <div class="database-list">
+                <div class="database-item">
+                    <div class="database-name">MethBank</div>
+                    <div class="database-desc">DNA甲基化数据库，提供多个物种的DNA甲基化图谱</div>
+                    <a href="https://bigd.big.ac.cn/methbank/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">ENCODE</div>
+                    <div class="database-desc">人类基因组元件百科全书，包含表观遗传修饰和调控元件信息</div>
+                    <a href="https://www.encodeproject.org/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">Roadmap Epigenomics</div>
+                    <div class="database-desc">人类表观基因组图谱计划数据库，提供组织特异性表观修饰信息</div>
+                    <a href="http://www.roadmapepigenomics.org/" target="_blank">访问</a>
+                </div>
+            </div>
+
+            <h2>代谢组学数据库</h2>
+            <div class="database-list">
+                <div class="database-item">
+                    <div class="database-name">HMDB</div>
+                    <div class="database-desc">人类代谢组数据库，提供人体代谢物的详细信息</div>
+                    <a href="https://hmdb.ca/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">MetaboLights</div>
+                    <div class="database-desc">代谢组学实验数据库，收集代谢组学研究的原始数据</div>
+                    <a href="https://www.ebi.ac.uk/metabolights/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">MetaCyc</div>
+                    <div class="database-desc">代谢通路数据库，提供实验验证的代谢通路信息</div>
+                    <a href="https://metacyc.org/" target="_blank">访问</a>
+                </div>
+            </div>
+
+            <h2>微生物数据库</h2>
+            <div class="database-list">
+                <div class="database-item">
+                    <div class="database-name">IMG</div>
+                    <div class="database-desc">整合微生物基因组数据库，提供微生物基因组注释和分析工具</div>
+                    <a href="https://img.jgi.doe.gov/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">SILVA</div>
+                    <div class="database-desc">核糖体RNA数据库，提供原核生物和真核微生物的rRNA序列</div>
+                    <a href="https://www.arb-silva.de/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">CARD</div>
+                    <div class="database-desc">抗生素耐药基因数据库，收集微生物抗药性相关信息</div>
+                    <a href="https://card.mcmaster.ca/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">MBGD</div>
+                    <div class="database-desc">微生物基因组数据库，提供细菌和古菌的比较基因组分析</div>
+                    <a href="http://mbgd.genome.ad.jp/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">BacDive</div>
+                    <div class="database-desc">细菌多样性数据库，提供细菌表型和生理特征信息</div>
+                    <a href="https://bacdive.dsmz.de/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">VFDB</div>
+                    <div class="database-desc">病原菌毒力因子数据库，收集致病菌的毒力基因信息</div>
+                    <a href="http://www.mgc.ac.cn/VFs/" target="_blank">访问</a>
+                </div>
+            </div>
+
+            <h2>植物数据库</h2>
+            <div class="database-list">
+                <div class="database-item">
+                    <div class="database-name">TAIR</div>
+                    <div class="database-desc">拟南芥信息资源，提供模式植物拟南芥的基因组和功能注释信息</div>
+                    <a href="https://www.arabidopsis.org/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">Gramene</div>
+                    <div class="database-desc">禾本科植物数据库，提供水稻等作物的比较基因组学数据</div>
+                    <a href="https://www.gramene.org/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">PlantGDB</div>
+                    <div class="database-desc">植物基因组数据库，收集植物EST和基因组序列数据</div>
+                    <a href="http://www.plantgdb.org/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">Phytozome</div>
+                    <div class="database-desc">植物比较基因组门户，提供多个植物物种的基因组数据</div>
+                    <a href="https://phytozome.jgi.doe.gov/" target="_blank">访问</a>
+                </div>
+            </div>
+
+            <h2>单细胞数据库</h2>
+            <div class="database-list">
+                <div class="database-item">
+                    <div class="database-name">Single Cell Portal</div>
+                    <div class="database-desc">单细胞基因组学数据门户，提供单细胞RNA测序数据分析和可视化</div>
+                    <a href="https://singlecell.broadinstitute.org/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">Human Cell Atlas</div>
+                    <div class="database-desc">人类细胞图谱计划数据库，收集人体各组织的单细胞转录组数据</div>
+                    <a href="https://www.humancellatlas.org/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">scRNA-seq DB</div>
+                    <div class="database-desc">单细胞RNA测序数据库，整合公共单细胞转录组数据集</div>
+                    <a href="https://www.scrna-seq.com/" target="_blank">访问</a>
+                </div>
+            </div>
+
+            <h2>免疫学数据库</h2>
+            <div class="database-list">
+                <div class="database-item">
+                    <div class="database-name">IMGT</div>
+                    <div class="database-desc">免疫遗传学数据库，提供免疫球蛋白和T细胞受体基因信息</div>
+                    <a href="http://www.imgt.org/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">ImmPort</div>
+                    <div class="database-desc">免疫学数据门户，收集免疫学研究相关的实验数据</div>
+                    <a href="https://www.immport.org/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">IEDB</div>
+                    <div class="database-desc">免疫表位数据库，提供T细胞和B细胞表位信息</div>
+                    <a href="http://www.iedb.org/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">VDJdb</div>
+                    <div class="database-desc">T细胞受体数据库，收集TCR序列和抗原特异性信息</div>
+                    <a href="https://vdjdb.cdr3.net/" target="_blank">访问</a>
+                </div>
+            </div>
+
+            <h2>系统发育数据库</h2>
+            <div class="database-list">
+                <div class="database-item">
+                    <div class="database-name">TreeBASE</div>
+                    <div class="database-desc">系统发育树数据库，收集已发表文献中的系统发育树数据。包含形态学和分子数据的系统发育分析结果，支持树的可视化和比较，提供系统发育研究的原始数据和分析方法，是进化生物学研究的重要资源</div>
+                    <a href="https://www.treebase.org/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">TimeTree</div>
+                    <div class="database-desc">物种分歧时间数据库，整合了发表文献中的物种分子进化时间估计。提供超过50000个物种的分歧时间信息，支持任意两个物种间分歧时间的快速查询，包含详细的时间估计方法和参考文献</div>
+                    <a href="http://www.timetree.org/" target="_blank">访问</a>
+                </div>
+            </div>
+
+            <h2>蛋白质结构预测数据库</h2>
+            <div class="database-list">
+                <div class="database-item">
+                    <div class="database-name">ESMFold</div>
+                    <div class="database-desc">Meta AI开发的蛋白质结构预测数据库，使用大规模语言模型进行蛋白质结构预测。基于ESM-2模型训练，可以直接从氨基酸序列预测蛋白质结构，预测速度快，准确度高，支持批量预测和在线可视化</div>
+                    <a href="https://esmatlas.com/" target="_blank">访问</a>
+                </div>
+                <div class="database-item">
+                    <div class="database-name">RoseTTAFold</div>
+                    <div class="database-desc">Baker实验室开发的蛋白质结构预测服务器，结合深度学习和物理建模方法。使用三轨神经网络架构，同时考虑序列、距离和结构信息，支持复合物结构预测，提供预测结构的置信度评估</div>
+                    <a href="https://robetta.bakerlab.org/" target="_blank">访问</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
