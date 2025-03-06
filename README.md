@@ -1,6 +1,6 @@
-# Bioinformatics Toolbox
+# Strandlytix
 
-Bioinformatics Toolbox 是一个集成了多种生物信息学数据可视化工具的在线平台。该工具箱提供了直观的用户界面，支持多种常用的生物信息学数据可视化需求。
+Strandlytix 是一个集成了多种生物信息学数据可视化工具的在线平台。该工具箱提供了直观的用户界面，支持多种常用的生物信息学数据可视化需求。
 
 ## 功能模块
 
@@ -12,15 +12,7 @@ Bioinformatics Toolbox 是一个集成了多种生物信息学数据可视化工
 - **SNP 密度图可视化**: 支持基因组 SNP 分布密度的可视化与区域分析
 - **火山图可视化**: 支持差异表达基因的火山图绘制与阈值调整
 
-## 使用说明
+## 使用方法
 
-本项目可通过两种方式使用：
-- 在线使用：直接访问 [Bioinformatics Toolbox](https://imjiaoyuan.github.io/bioinformatics_toolbox)
+- 在线使用：直接访问 [Strandlytix](https://yuanj.top/strandlytix/)
 - 本地使用：如果在线访问速度较慢，可以下载项目压缩包在本地使用。每个工具模块都是独立的，可以单独下载使用。
-
-## 开源协议
-MIT License
-
-## 联系方式
-- Email: imjiaoyuan@gmail.com
-- Blog: https://yuanj.top
